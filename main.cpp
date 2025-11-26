@@ -152,8 +152,8 @@ void mostrarPrecioMaxMin() {
         if (p.precio < minPrecio) minPrecio = p.precio;
     }
 
-    cout << "Precio m�ximo de productos: $" << fixed << setprecision(2) << maxPrecio << endl;
-    cout << "Precio m�nimo de productos: $" << fixed << setprecision(2) << minPrecio << endl;
+    cout << "Precio máximo de productos: $" << fixed << setprecision(2) << maxPrecio << endl;
+    cout << "Precio mínimo de productos: $" << fixed << setprecision(2) << minPrecio << endl;
 }
 
 
@@ -202,7 +202,7 @@ void mostrarResumenCarrito(const CarritoDeCompras &carrito) {
          << setw(1) << "$"
          << right << setw(14) << fixed << setprecision(2) << carrito.impuestos << endl;
 
-    cout << left << setw(130) << "Envío:"
+    cout << left << setw(130) << "EnvÃ­o:"
          << setw(1) << "$"
          << right << setw(14) << fixed << setprecision(2) << ENVIO << endl;
 
@@ -309,14 +309,14 @@ vector<Usuario>::iterator iniciarSesion() {
 	} while(user==Usuarios.end());
 	
 	do {
-		cout<<"Ingresar contraseña: ";
+		cout<<"Ingresar contraseÃ±a: ";
 		cin>>pass;
 		
 		if (pass==user->contra) {
             cout << "Bienvenid@ "<<user->nombre<< "!!!"<<endl;
             break;
         }
-	    cout<<"Contraseña incorrecta, intente nuevamente."<<endl;
+	    cout<<"ContraseÃ±a incorrecta, intente nuevamente."<<endl;
 	} while(true);
 	system("pause");
     return user;
@@ -339,7 +339,7 @@ int main(){
         cout << "1. Listar usuarios" << endl;
         cout << "2. Listar productos" << endl;
         cout << "3. Cargar comentarios despues de una fecha" << endl;
-        cout << "4. Añadir producto al carrito de compras" << endl;
+        cout << "4. AÃ±adir producto al carrito de compras" << endl;
         cout << "5. reportes"<<endl;
         cout << "6. Salir" << endl;
         entradaEnRango(opcion, 1, 6, "Seleccione una opcion (1-6): ", "Opcion invalida. Intente nuevamente.");
@@ -372,12 +372,12 @@ int main(){
 
                 int idProducto;
                 do {
-                    entradaEnRango(idProducto, 0, Productos.size(), "Ingrese el ID del producto a añadir (0 para salir): ", "ID invalido. Intente nuevamente.");
+                    entradaEnRango(idProducto, 0, Productos.size(), "Ingrese el ID del producto a aÃ±adir (0 para salir): ", "ID invalido. Intente nuevamente.");
                     if (idProducto == 0) break;
                     if (Productos[idProducto-1].stock==0) cout<<"Ese producto ya no esta en stock."<<endl;
                     else{
                     addProducto(carrito, idProducto);
-                    cout << "Producto añadido al carrito." << endl;
+                    cout << "Producto aÃ±adido al carrito." << endl;
                     }
                 } while (true);
                 system("cls");
@@ -400,6 +400,10 @@ int main(){
                 	break;
 				}
 				case 2:{
+					string fechaactu;
+					cout<<"ingrese fecha (aaaa/mm/dd): ";
+					cin>>fechaactu;
+					cargarComentarios(fechaactu);
 					break;
 				}
 				case 3: {
