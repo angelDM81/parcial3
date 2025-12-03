@@ -82,7 +82,7 @@ inline void inicializarProductos() {
 }
 inline void inicializarComentarios() {
     ifstream file("comentarios.txt");
-    string line;
+     getline(file, line);
     while(getline(file, line)){
         comentarios.emplace_back();
         size_t begin = 0;
